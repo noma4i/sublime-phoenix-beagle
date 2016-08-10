@@ -17,7 +17,7 @@
             "web/controllers/$1_controller.ex"
         ],
         // Unit Tests
-        ".+\/test\/controllers\/(.+)_controller_test.ex$": [
+        ".+\/test\/controllers\/(.+)_controller_test.ex": [
             "web/controllers/$1_controller.ex"
         ],
         // ЬШпкфешщты Tests

@@ -1,4 +1,11 @@
-[{
+[
+  {
     "keys": ["command+shift+k"],
     "command": "phoenix_beagle"
-}]
+  },
+  {
+    "keys": ["command+shift+j"],
+    "command": "phoenix_beagle",
+    "args": { "command": "mlist"}
+  }
+]

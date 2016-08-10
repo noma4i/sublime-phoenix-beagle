@@ -1,3 +1,6 @@
 [
-   { "caption": "Show More Phoenix Files", "command": "phoenix_beagle" }
+  { "caption": "Show More Phoenix Files", "command": "phoenix_beagle" },
+  { "caption": "Phoenix Migrations List", "command": "phoenix_beagle",
+    "args": { "command": "mlist"}
+  }
 ]

@@ -17,18 +17,10 @@ class Phoenix(object):
 
     def __build(self):
         files = set()
-
         file_path = self.__to_posixpath(self.__file_path)
 
         for regex, paths in list(self.__patterns.items()):
             match = re.compile(regex).match(file_path)
-
-            print ('=========')
-            print (regex)
-            print (file_path)
-            print (match)
-            print ('=========')
-
             if match:
                 files.update(self.__files_for_paths(regex, match, paths))
 
@@ -48,13 +40,12 @@ class Phoenix(object):
 
     def __files_for_paths(self, regex, match, paths):
         paths = [self.__replaced_path(match, path) for path in paths]
-        files = [glob.glob(os.path.join(self.__root, path)) for path in paths]
+        files = [glob.iglob(os.path.join(self.__root, self.__to_posixpath(path))) for path in paths]
         flattened = [self.__to_posixpath(path) for path in list(itertools.chain.from_iterable(files))]
 
         return flattened
 
     def __file_without_root(self, file):
-        print(self.__root)
         clean_path = file[len(self.__root):]
         if 'migrations' in clean_path:
             clean_path = clean_path[len('/priv/repo/migrations/'):]
@@ -74,7 +65,6 @@ class PhoenixBeagleCommand(sublime_plugin.WindowCommand):
         command = args.get('command')
         active_file_path = self.__active_file_path()
         active_folders = sublime.active_window().folders()
-        print(active_file_path)
         if command == 'mlist':
             self.__beagle = Phoenix(active_file_path + 'beagle_migrations', self.__patterns(), active_folders)
             self.window.show_quick_panel(self.__beagle.descriptions(), self.__open_file)

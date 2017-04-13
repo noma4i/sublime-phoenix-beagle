@@ -4,21 +4,39 @@
         ".+\/web\/controllers\/(.+)_controller.ex$": [
             "web/views/$1_view.ex",
             "web/templates/$1/**",
+            "web/models/$1.ex",
             "web/router.ex",
             "test/controllers/$1_controller_test.exs"
         ],
         // Views
-        ".+\/web\/views\/(.+)\/[^\/].+": [
-            "web/views/$1/**",
-            "web/controllers/$1_controller.ex"
+        ".+\/web\/views\/(.+)_view.ex$": [
+            "test/views/$1_view_test.exs",
+            "web/templates/$1/**",
+            "web/controllers/$1_controller.ex",
         ],
         // Templates
         ".+\/web\/templates\/(.+)\/[^\/].+": [
-            "web/controllers/$1_controller.ex"
+            "web/controllers/$1_controller.ex",
+            "web/views/$1_view.ex",
+            "web/models/$1.ex",
+            "test/views/$1_view_test.exs"
+        ],
+        // Models
+        ".+\/web\/models\/(.+).ex$": [
+            "test/models/$1_test.exs",
+            "web/views/$1_view.ex",
+            "web/controllers/$1_controller.ex",
+            "web/templates/$1/**"
         ],
         // Unit Tests
         ".+\/test\/controllers\/(.+)_controller_test.ex": [
             "web/controllers/$1_controller.ex"
+        ],
+        ".+\/test\/models\/(.+)_test.ex": [
+            "web/models/$1.ex"
+        ],
+        ".+\/test\/views\/(.+)_view_test.exs": [
+            "web/views/$1_view.ex"
         ],
         // ЬШпкфешщты Tests
         ".+beagle_migrations": [

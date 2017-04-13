@@ -2,8 +2,7 @@
 
 Sublime Text plugin for better Phoenix Framework experience.
 
-### Phoenix v1.2
-For support of v1.2 checkout branch `phoenix_v1.2`
+**For support of v1.2 checkout branch `phoenix_v1.2`**
 
 ### Quick Start
 - Clone/download plugin to your SublimeText User folder under SublimePhoenixBeagle

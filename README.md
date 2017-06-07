@@ -34,7 +34,7 @@ You can override default shortcuts:
     "command": "phoenix_beagle"
   },
   {
-    "keys": ["command+shift+j"],
+    "keys": ["command+shift+o"],
     "command": "phoenix_beagle",
     "args": { "command": "mlist"}
   }
